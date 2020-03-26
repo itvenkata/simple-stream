@@ -4,15 +4,20 @@ import lombok.extern.slf4j.Slf4j;
 import org.apache.kafka.common.serialization.Serdes;
 import org.apache.kafka.streams.*;
 import org.apache.kafka.streams.kstream.KStream;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
+
 
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Properties;
 import java.util.concurrent.CountDownLatch;
 
-@Slf4j
+
 public class StatelessTransformationsMain {
+    private static final Logger logger = LogManager.getLogger();
     public static void main(String[] args){
+        logger.info("Start Consumer");
         Properties props= new Properties();
         props.put(StreamsConfig.APPLICATION_ID_CONFIG,AppConfigs.applicationID);
         props.put(StreamsConfig.BOOTSTRAP_SERVERS_CONFIG,AppConfigs.bootstrapServers);

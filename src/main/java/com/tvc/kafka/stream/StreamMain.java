@@ -6,16 +6,18 @@ import org.apache.kafka.streams.StreamsBuilder;
 import org.apache.kafka.streams.StreamsConfig;
 import org.apache.kafka.streams.Topology;
 import org.apache.kafka.streams.kstream.KStream;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 
 
 import java.util.Properties;
 import java.util.concurrent.CountDownLatch;
 
-@Slf4j
-public class StreamMain {
 
+public class StreamMain {
+    private static final Logger logger = LogManager.getLogger();
         public static void main(String[] args) {
-            log.info("Start Producer");
+            logger.info("Start Consumer");
             Properties props= new Properties();
             props.put(StreamsConfig.APPLICATION_ID_CONFIG, AppConfigs.applicationID);
             props.put(StreamsConfig.BOOTSTRAP_SERVERS_CONFIG, AppConfigs.bootstrapServers);

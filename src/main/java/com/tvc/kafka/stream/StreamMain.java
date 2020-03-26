@@ -1,26 +1,21 @@
-package com.tvc.kafka.producer;
-import com.tvc.kafka.producer.AppConfigs;
-import org.apache.kafka.clients.producer.KafkaProducer;
-import org.apache.kafka.clients.producer.ProducerConfig;
-import org.apache.kafka.clients.producer.ProducerRecord;
-import org.apache.kafka.common.serialization.IntegerSerializer;
+package com.tvc.kafka.stream;
+import lombok.extern.slf4j.Slf4j;
 import org.apache.kafka.common.serialization.Serdes;
-import org.apache.kafka.common.serialization.StringSerializer;
 import org.apache.kafka.streams.KafkaStreams;
 import org.apache.kafka.streams.StreamsBuilder;
 import org.apache.kafka.streams.StreamsConfig;
 import org.apache.kafka.streams.Topology;
 import org.apache.kafka.streams.kstream.KStream;
-import org.apache.logging.log4j.LogManager;
-import org.apache.logging.log4j.Logger;
+
 
 import java.util.Properties;
 import java.util.concurrent.CountDownLatch;
 
-public class Main {
-        private static final Logger logger = LogManager.getLogger();
+@Slf4j
+public class StreamMain {
+
         public static void main(String[] args) {
-            logger.info("Start Producer");
+            log.info("Start Producer");
             Properties props= new Properties();
             props.put(StreamsConfig.APPLICATION_ID_CONFIG, AppConfigs.applicationID);
             props.put(StreamsConfig.BOOTSTRAP_SERVERS_CONFIG, AppConfigs.bootstrapServers);
